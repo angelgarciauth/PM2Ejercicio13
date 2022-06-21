@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio13.Views.ListPerson">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <FlexLayout Direction="Row"
+                AlignItems="Center"
+                        Padding="20"
+                JustifyContent="SpaceEvenly">
+
+                
+                <Label Text="Lista de Personas" FontSize="16" Padding="10,5,30,10"/>
+            </FlexLayout>
+
+            <CollectionView x:Name="ListaPerona"
+                            SelectionMode="Single"
+                            SelectionChanged="ListaPerona_SelectionChanged">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10"/>
+
+                </CollectionView.ItemsLayout>
+
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label VerticalOptions="Center" Text="{Binding nombres}"/>
+                            <Label VerticalOptions="Center" Text="{Binding apellidos}"/>
+
+
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

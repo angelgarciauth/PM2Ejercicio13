@@ -15,7 +15,7 @@ namespace PM022PP0122.Controller
         public DataBase(string dbpath) {
             dbase = new SQLiteAsyncConnection(dbpath);
             //creacion de las tablas de la base de datos
-            dbase.CreateTableAsync<Persona>(); //creando tabla de empleados
+            dbase.CreateTableAsync<Persona>(); //creando tabla de personas
 
             
         }
@@ -26,26 +26,26 @@ namespace PM022PP0122.Controller
 
 
         //Create
-        public Task<int> EmpleSave(Persona emple)
+        public Task<int> PersonSaveUpdate(Persona person)
         {
-            if(emple.id != 0)
+            if(person.id != 0)
             {
-                return dbase.UpdateAsync(emple);
+                return dbase.UpdateAsync(person);
             }
             else
             {
-                return dbase.InsertAsync(emple);
+                return dbase.InsertAsync(person);
             }
         }
 
         //Read
-        public Task<List<Persona>> ObtenerListaEmple()
+        public Task<List<Persona>> getListPerson()
         {
             return dbase.Table<Persona>().ToListAsync();
         }
 
         //Read v2
-        public Task<Persona> ObtenerEmple(int pid)
+        public Task<Persona> getPerson(int pid)
         {
             return dbase.Table<Persona>()
                 .Where(i => i.id == pid)
@@ -54,9 +54,9 @@ namespace PM022PP0122.Controller
 
         //Delete
 
-        public Task<int> EmpleDelete(Persona emple)
+        public Task<int> deletePerson(Persona person)
         {
-            return dbase.DeleteAsync(emple);
+            return dbase.DeleteAsync(person);
         }
 
         #endregion Operaciones

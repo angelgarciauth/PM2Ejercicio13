@@ -23,6 +23,7 @@ namespace Ejercicio13.Views
         {
             if (string.IsNullOrEmpty(txtNombresA.Text))
             {
+                
                 await DisplayAlert("Error", "Por favor, ingrese los nombres", "OK");
                 return;
             }

@@ -1,4 +1,5 @@
-﻿using PM022PP0122.Controller;
+﻿using Ejercicio13.Views;
+using PM022PP0122.Controller;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -26,7 +27,7 @@ namespace Ejercicio13
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage()) ;
+            MainPage = new NavigationPage(new ListPerson()) ;
 
         }
 

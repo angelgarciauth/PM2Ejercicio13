@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ejercicio13.Views.ActualizarPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <FlexLayout Direction="Row"
+                AlignItems="Center"
+                        Padding="10"
+                    BackgroundColor="Orange"
+                JustifyContent="SpaceEvenly">
+
+                <Label Text="Actualizar Persona" FontSize="18" Padding="10,5,30,10"/>
+            </FlexLayout>
+
+            <Entry 
+                   Keyboard="Text" 
+                   x:Name="txtId" 
+                IsVisible="false"
+                   BackgroundColor="White"
+                   
+                   Text="{Binding id}"/>
+
+            <Label Text="Nombres" FontSize="16" Padding="20,5,30,10"/>
+            <Entry 
+                   Keyboard="Text" 
+                   x:Name="txtNombresA" 
+                   BackgroundColor="White"
+                   
+                   Text="{Binding nombre}"/>
+
+            <Label Text="Apellidos" FontSize="16" Padding="20,5,30,10"/>
+            <Entry 
+                   Keyboard="Text" 
+                   x:Name="txtApellidosA" 
+                   BackgroundColor="White"
+                   Text="{Binding apellido}"/>
+            <Label Text="Edad" FontSize="16" Padding="20,5,30,10"/>
+            <Entry  
+                   Keyboard="Numeric" 
+                   x:Name="txtEdadA" 
+                   BackgroundColor="White"
+                   Text="{Binding edad}"/>
+            <Label Text="Correo" FontSize="16" Padding="20,5,30,10"/>
+            <Entry  
+                   Keyboard="Text" 
+                   x:Name="txtCorreoA" 
+                   BackgroundColor="White"
+                   Text="{Binding correo}"/>
+
+            <Label Text="Direccion" FontSize="16" Padding="20,5,30,10"/>
+            <Editor Keyboard="Text"
+                    HeightRequest="100" 
+                    Text="{Binding direccion}"
+                    x:Name="txtDireccionA"
+                    />
+
+            <Button Text="Actualizar" x:Name="btnActualizar" Margin="10,0,10,0" Clicked="btnActualizar_Clicked" BackgroundColor="Orange"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -19,14 +19,14 @@
                    x:Name="txtNombres" 
                    BackgroundColor="White"
                    
-                   Text="{Binding nombres}"/>
+                   Text="{Binding nombre}"/>
 
         <Label Text="Apellidos" FontSize="16" Padding="20,5,30,10"/>
         <Entry 
                    Keyboard="Text" 
                    x:Name="txtApellidos" 
                    BackgroundColor="White"
-                   Text="{Binding apellidos}"/>
+                   Text="{Binding apellido}"/>
         <Label Text="Edad" FontSize="16" Padding="20,5,30,10"/>
         <Entry  
                    Keyboard="Numeric" 

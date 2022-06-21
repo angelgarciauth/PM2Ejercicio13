@@ -1,22 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ejercicio13.Views.ListPerson">
+             x:Class="Ejercicio13.Views.ListPerson"
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout>
 
             <FlexLayout Direction="Row"
                 AlignItems="Center"
                         Padding="20"
+                        BackgroundColor="Orange"
                 JustifyContent="SpaceEvenly">
 
                 
                 <Label Text="Lista de Personas" FontSize="16" Padding="10,5,30,10"/>
             </FlexLayout>
 
-            <CollectionView x:Name="ListaPerona"
-                            SelectionMode="Single"
-                            SelectionChanged="ListaPerona_SelectionChanged">
+            <CollectionView x:Name="ListaPersona"
+                            SelectionMode="Single" 
+                            SelectionChanged="ListaPersona_SelectionChanged">
 
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical"
@@ -27,10 +29,10 @@
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Padding="20,5,10,10">
 
-                            <Label VerticalOptions="Center" Text="{Binding nombres}"/>
-                            <Label VerticalOptions="Center" Text="{Binding apellidos}"/>
+                            <Label VerticalOptions="Center" Text="{Binding nombre}" FontSize="15"/>
+                            <Label VerticalOptions="Center" Text="{Binding apellido}" FontSize="15"/>
 
 
                         </StackLayout>
@@ -39,6 +41,28 @@
 
             </CollectionView>
 
+            <Frame 
+               Padding="5"
+                HasShadow="false">
+                <StackLayout Orientation="Horizontal"
+                         Spacing="50"
+                             
+                             Padding="20">
+                    <Button Text="Agregar" x:Name="btnSave" Margin="30,0,10,0"  Clicked="btnSave_Clicked" BackgroundColor="GreenYellow"/>
+                    <Button Text="Actualizar" x:Name="btnActualizar" Margin="10,0,10,0" Clicked="btnActualizar_Clicked" BackgroundColor="CadetBlue"/>
+                </StackLayout>
+
+            </Frame>
+
+            <Frame 
+               Padding="20"
+                HasShadow="false">
+                <StackLayout Orientation="Vertical"
+                         Spacing="0"
+                             Padding="0">
+                    <Button Text="Eliminar" x:Name="btnDelete" Margin="70,0,70,0" Clicked="btnDelete_Clicked" BackgroundColor="OrangeRed"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

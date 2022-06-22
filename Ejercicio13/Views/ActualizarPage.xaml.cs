@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -58,6 +60,12 @@ namespace Ejercicio13.Views
                 return;
             }
 
+            if (! ValidarCorreo(txtCorreoA.Text))
+            {
+                await DisplayAlert("Error", "Por favor, ingrese un correo valido", "OK");
+                return;
+            }
+
             var idPersona = (string.IsNullOrEmpty(txtId.Text)) ? 0 : int.Parse(txtId.Text);
             var person = new Persona()
             {
@@ -81,6 +89,15 @@ namespace Ejercicio13.Views
             {
                 await DisplayAlert("Alert", "Ha ocurrido un error", "OK");
             }
+        }
+
+        public bool ValidarCorreo(string email)
+        {
+            Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            return EmailRegex.IsMatch(email);
         }
     }
 }

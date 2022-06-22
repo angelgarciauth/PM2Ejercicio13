@@ -10,9 +10,11 @@ using Xamarin.Forms.Xaml;
 
 namespace Ejercicio13.Views
 {
+    
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListPerson : ContentPage
     {
+        public bool val;
         Persona currentData;
         public ListPerson()
         {
@@ -48,6 +50,8 @@ namespace Ejercicio13.Views
         private async void btnSave_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MainPage());
+
+            
         }
 
         private async void btnActualizar_Clicked(object sender, EventArgs e)
@@ -59,7 +63,8 @@ namespace Ejercicio13.Views
             else
             {
                 var persona = currentData;
-                ActualizarPage page = new ActualizarPage();
+                val = false;
+                ActualizarPage page = new ActualizarPage(val);
                 page.BindingContext = persona;
                 await Navigation.PushAsync(page);
                 currentData = null;
@@ -88,5 +93,26 @@ namespace Ejercicio13.Views
 
             }
         }
+
+        private async void btnVer_Clicked(object sender, EventArgs e)
+        {
+            if (currentData == null)
+
+            {
+                await DisplayAlert("Advertencia", "Seleccione una persona", "Ok");
+            }
+            else
+            {
+                var persona = currentData;
+                val = true;
+                ActualizarPage page = new ActualizarPage(val);
+                page.BindingContext = persona;
+                await Navigation.PushAsync(page);
+                currentData = null;
+            }
+
+        }
+
+       
     }
 }

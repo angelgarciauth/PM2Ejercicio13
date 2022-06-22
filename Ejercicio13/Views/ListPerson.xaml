@@ -12,9 +12,11 @@
                         BackgroundColor="Orange"
                 JustifyContent="SpaceEvenly">
 
-                
+
                 <Label Text="Lista de Personas" FontSize="16" Padding="10,5,30,10"/>
             </FlexLayout>
+
+            
 
             <CollectionView x:Name="ListaPersona"
                             SelectionMode="Single" 
@@ -40,29 +42,25 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
 
-            <Frame 
-               Padding="5"
-                HasShadow="false">
-                <StackLayout Orientation="Horizontal"
-                         Spacing="50"
-                             
-                             Padding="20">
-                    <Button Text="Agregar" x:Name="btnSave" Margin="30,0,10,0"  Clicked="btnSave_Clicked" BackgroundColor="GreenYellow"/>
-                    <Button Text="Actualizar" x:Name="btnActualizar" Margin="10,0,10,0" Clicked="btnActualizar_Clicked" BackgroundColor="CadetBlue"/>
-                </StackLayout>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition  Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button Text="Ver" x:Name="btnVer" Grid.Row="0" Grid.Column="0" Margin="10,0,10,0" Clicked="btnVer_Clicked" BackgroundColor="Thistle"/>
+                <Button Text="Agregar" x:Name="btnSave " Grid.Row="0" Grid.Column="1" Margin="10,0,10,0"  Clicked="btnSave_Clicked" BackgroundColor="GreenYellow"/>
+                <Button Text="Actualizar" x:Name="btnActualizar" Grid.Row="1" Grid.Column="0" Margin="10,0,10,0" Clicked="btnActualizar_Clicked" BackgroundColor="CadetBlue"/>
+                <Button Text="Eliminar" x:Name="btnDelete" Grid.Row="1" Grid.Column="1" Margin="10,0,10,0" Clicked="btnDelete_Clicked" BackgroundColor="OrangeRed"/>
 
-            </Frame>
+            </Grid>
 
-            <Frame 
-               Padding="20"
-                HasShadow="false">
-                <StackLayout Orientation="Vertical"
-                         Spacing="0"
-                             Padding="0">
-                    <Button Text="Eliminar" x:Name="btnDelete" Margin="70,0,70,0" Clicked="btnDelete_Clicked" BackgroundColor="OrangeRed"/>
-                </StackLayout>
-            </Frame>
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>

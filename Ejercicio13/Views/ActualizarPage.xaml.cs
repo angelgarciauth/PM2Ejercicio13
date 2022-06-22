@@ -13,9 +13,15 @@ namespace Ejercicio13.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActualizarPage : ContentPage
     {
-        public ActualizarPage()
+        public ActualizarPage(bool val)
         {
             InitializeComponent();
+
+            if (val==true)
+            {
+                btnActualizar.IsVisible = false;
+                lblTitulo.Text = "Datos de Persona";
+            }
         }
 
       
